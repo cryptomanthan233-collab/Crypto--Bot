@@ -26,6 +26,9 @@ class DummyHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(b"24/7 Crypto Signal Bot (BTC, ETH, SOL, XRP, PEPE) is Running!")
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
     def log_message(self, format, *args):
         pass
 
@@ -191,3 +194,4 @@ def run_bot():
 if __name__ == "__main__":
     threading.Thread(target=start_web_server, daemon=True).start()
     run_bot()
+
